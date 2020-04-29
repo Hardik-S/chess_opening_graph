@@ -31,7 +31,7 @@ The pie chart sizes will be divided based on how frequent the move is compared t
 
 ## Hover Functionality
 <p align="center">
-  <img width = "197" height = "172" src = "https://github.com/Destaq/opening_analysis/raw/master/images/hover_Example.png">
+  <img width = "197" height = "172" src = https://github.com/Hardik-S/chess_opening_graph/blob/master/images/hover_Example.png">
  </p>
 
 ## Click to Zoom
