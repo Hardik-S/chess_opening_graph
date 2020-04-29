@@ -18,8 +18,9 @@ The pie chart sizes will be divided based on how frequent the move is compared t
 
 # Prerequisites
 - Runs in Python 3, must have Python 3 installed
-- Requires PyGal
-You can install PyGal using PyPi, as long as you are an admin user on your device. To do so, simply type `pip install pygal` into your terminal.
+- Requires plotly (pip install plotly)
+- Requires python-chess (pip install python-chess)
+- Requires PyGal (pip install pygal)
 
 # Examples
 *All examples were that of Magnus Carlsen's OTB tournament games*
