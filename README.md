@@ -26,17 +26,17 @@ The pie chart sizes will be divided based on how frequent the move is compared t
 *All examples were that of Magnus Carlsen's OTB tournament games*
 ## Simple Pie Chart
 <p align="center">
-  <img width="700" height="450" src="https://github.com/Destaq/opening_analysis/raw/master/images/carlsen_5.png">
+  <img width="700" height="450" src="https://github.com/Hardik-S/chess_opening_graph/blob/master/images/Carlsen%20-%20Depth%208.png">
 </p>
 
 ## Hover Functionality
 <p align="center">
-  <img width = "197" height = "172" src = https://github.com/Hardik-S/chess_opening_graph/blob/master/images/hover_Example.png">
+  <img width = "197" height = "172" src = "https://github.com/Hardik-S/chess_opening_graph/blob/master/images/hover_Example.png">
  </p>
 
 ## Click to Zoom
 <p align="center">
-  <img width = "700" height = "450" src = "https://github.com/Destaq/opening_analysis/raw/master/images/carlsen_Nf3_4.png">
+  <img width = "700" height = "450" src = "https://github.com/Hardik-S/chess_opening_graph/blob/master/images/carlsen_Nf3_4.png">
  </p>
 
 ## Extra Info
