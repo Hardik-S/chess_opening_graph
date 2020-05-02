@@ -29,10 +29,10 @@ def parse_individual_games(pgn, depth):
     for game in game_list:
         small_list = []  # essentially only that game's list
         board = game.board()
-        i = 0
+        turn = 0
         for move in game.mainline_moves():
-            if i < depth:  # only count moves to needed depth
-                i += 1
+            if turn < depth:  # only count moves to needed depth
+                turn += 1
                 small_list.append(chess.Board.san(board, move=move))
                 board.push(move)
             else:
@@ -43,23 +43,31 @@ def parse_individual_games(pgn, depth):
 
 
 def form_values(depth):
-    firstx = [lst[i][:depth] for i in range(len(lst))]  # probably unneeded but for safety's sake...
+    firstx = [lst[i][:depth]
+              for i in
+              range(len(lst))]  # probably unneeded but for safety's sake...
 
     all_level_moves, exclude_first_moves = [], []  # for parent/labels later
     counter = 0
-    holder = [firstx[i][0] for i in range(len(firstx))]
+    holder = [firstx[i][0]
+              for i in
+              range(len(firstx))]
     holder = dict(Counter(holder))
 
     while counter < depth:
         if counter == 0:
             first_move = list(Counter(
-                [tuple(firstx[i][:1]) for i in range(len(lst))]).items())  # list of first ply moves based on popularity
+                [tuple(firstx[i][:1])
+                 for i in
+                 range(len(lst))]).items())  # list of first ply moves based on popularity
             all_level_moves.append(first_move)
             counter += 1
 
         else:
             counter += 1
-            other_move = list(Counter([tuple(firstx[i][:counter]) for i in range(len(lst))]).items())
+            other_move = list(Counter([tuple(firstx[i][:counter])
+                                       for i in
+                                       range(len(lst))]).items())
             all_level_moves.append(other_move)
             exclude_first_moves.append(other_move)  # obviously excluding first moves (for parent creation)
 
@@ -69,25 +77,41 @@ def form_values(depth):
     labels = []
 
     for i in range(len(all_level_moves)):
-        labels += [all_level_moves[i][f][0][i] for f in
+        labels += [all_level_moves[i][f][0][i]
+                   for f in
                    range(len(all_level_moves[i]))]  # similar to hackerrank diagonal
 
         if i == 0:
-            true_ids = [all_level_moves[0][r][0] for r in
+            true_ids = [all_level_moves[0][r][0]
+                        for r in
                         range(len(all_level_moves[0]))]  # special ids for original parents
-            true_ids = [item for sublist in true_ids for item in sublist]  # functions perfectly
+            true_ids = [item
+                        for sublist in
+                        true_ids
+                        for item in sublist]  # functions perfectly
             firstcount = len(labels)
         else:
-            true_ids += [all_level_moves[i][r][0] for r in range(len(all_level_moves[i]))]
-            parents += [all_level_moves[i][r][0][:len(all_level_moves[i][r][0]) - 1] for r in
+            true_ids += [all_level_moves[i][r][0]
+                         for r in
+                         range(len(all_level_moves[i]))]
+            parents += [all_level_moves[i][r][0][:len(all_level_moves[i][r][0]) - 1]
+                        for r in
                         range(len(all_level_moves[i]))]
 
-        pz += [z[0][:i] for ply_depth in exclude_first_moves for z in ply_depth]
+        pz += [z[0][:i]
+               for ply_depth in
+               exclude_first_moves
+               for z in ply_depth]
 
     parents = [''] * firstcount + parents  # flattening
 
     ids = true_ids
-    values = [i[1] for i in first_move] + [i[1] for move in exclude_first_moves for i in move]
+    values = [i[1]
+              for i in
+              first_move] + [i[1]
+                             for move in
+                             exclude_first_moves
+                             for i in move]
 
     # print(f'\n\nIDS: {ids}\n\nLABELS: {labels}\n\nPARENTS: {parents}\n\nVALUES: {values}')
 
